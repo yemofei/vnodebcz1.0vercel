@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= user.name %> - 百词斩用户信息</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>百词斩用户信息</h1>
+            <a href="/" class="back-btn">返回查询</a>
+        </header>
+
+        <main>
+            <section class="user-info">
+                <div class="user-avatar">
+                    <img src="<%= user.avatar %>" alt="<%= user.name %>的头像">
+                </div>
+
+                <div class="user-details">
+                    <h2><%= user.name %></h2>
+                    <p class="bczid">BCZID: <%= user.uniqueId %></p>
+
+                    <div class="attendance-info">
+                        <div class="attendance-status">
+                            <span class="label">今日打卡状态：</span>
+                            <span class="status <%= user.todayStudyCount > 0 ? 'checked' : 'unchecked' %>">
+                                <%= user.todayStudyCount > 0 ? '已打卡' : '未打卡' %>
+                            </span>
+                        </div>
+
+                        <div class="attendance-time">
+                            <span class="label">今日打卡时间：</span>
+                            <span class="time">
+                                <%= user.todayStudyCount > 0 ? '17:46' : '未打卡' %>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="groups-section">
+                <h2>小班信息</h2>
+
+                <% if (groups && groups.length > 0) { %>
+                    <div class="groups-list">
+                        <% groups.forEach(function(group) { %>
+                            <div class="group-card">
+                                <div class="group-header">
+                                    <div class="group-avatar">
+                                        <img src="<%= group.avatar %>" alt="<%= group.name %>的头像">
+                                        <% if (group.frame_status_text) { %>
+                                            <span class="frame-status"><%= group.frame_status_text %></span>
+                                        <% } %>
+                                    </div>
+
+                                    <div class="group-basic-info">
+                                        <h3><%= group.name %></h3>
+                                        <p class="group-level">等级：<%= group.rank_name %></p>
+                                        <p class="group-relationship">关系：<%= group.relationship %></p>
+                                    </div>
+                                </div>
+
+                                <div class="group-leader">
+                                    <h4>班长信息</h4>
+                                    <div class="leader-info">
+                                        <img src="<%= group.leaderAvatar %>" alt="<%= group.leaderName %>的头像" class="leader-avatar">
+                                        <div class="leader-details">
+                                            <p class="leader-name"><%= group.leaderName %></p>
+                                            <p class="leader-bczid">BCZID: <%= group.leaderUniqueId %></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="group-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-label">打卡完成率：</span>
+                                        <span class="stat-value"><%= group.completion_rate %></span>
+                                    </div>
+
+                                    <div class="stat-item">
+                                        <span class="stat-label">小班人数：</span>
+                                        <span class="stat-value"><%= group.totalCount %>/<%= group.max_members %></span>
+                                    </div>
+
+                                    <div class="stat-item">
+                                        <span class="stat-label">打卡情况：</span>
+                                        <span class="stat-value"><%= group.checkCount %>/<%= group.totalCount %></span>
+                                    </div>
+
+                                    <div class="stat-item">
+                                        <span class="stat-label">在班打卡：</span>
+                                        <span class="stat-value"><%= group.user_completed_times %>/<%= group.user_duration_days %></span>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }); %>
+                    </div>
+                <% } else { %>
+                    <p class="no-groups">该用户未加入任何小班</p>
+                <% } %>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 百词斩用户信息查询系统</p>
+        </footer>
+    </div>
+
+    <script type="module">
+        import { checkAuth } from '/js/cookie.js';
+        checkAuth();
+    </script>
+</body>
+</html>

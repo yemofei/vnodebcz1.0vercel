@@ -1,0 +1,41 @@
+{
+    "data": {
+        "observerUniqueId": 2082858246,
+        "uniqueId": 2082858246,
+        "name": "yemofei（半退",
+        "avatar": "https://vol-v6.bczcdn.com/ugc/2082858246/avatar/8CBD1E972F14A44925CF2FCD1DA71851.jpg",
+        "bookName": "高考词汇",
+        "dakaDays": 609,
+        "todayStudyCount": 0,
+        "totalStudyCount": 5089,
+        "grade": "初一",
+        "ip": "北京市",
+        "userTags": {
+            "1": "2",
+            "2": "6",
+            "3": "18",
+            "4": "20",
+            "5": "21"
+        },
+        "likedCount": 574,
+        "todayLikedState": false,
+        "oneself": true,
+        "userPrivacy": {
+            "groupId": 4589681,
+            "showDeskmate": 1,
+            "showGroup": 1,
+            "showTeam": 0
+        },
+        "avatarFrame": {
+            "id": 1,
+            "name": "青铜班长",
+            "frame": "https://vol-v6.bczcdn.com/r/ef52fuey5v58mqvrhjjnvrtx67nhn9gw.png",
+            "description": "本周青铜班的班长",
+            "expireTime": null,
+            "getTime": null
+        },
+        "todayStudyCheat": false
+    },
+    "message": "ok",
+    "code": 1
+}

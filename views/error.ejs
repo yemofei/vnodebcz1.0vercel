@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>错误 - 百词斩用户信息查询</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>百词斩用户信息查询</h1>
+        </header>
+
+        <main>
+            <div class="error-section">
+                <h2>出错了</h2>
+                <p class="error-message"><%= error %></p>
+                <a href="/" class="btn-primary">返回查询</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 百词斩用户信息查询系统</p>
+        </footer>
+    </div>
+
+    <script type="module">
+        import { checkAuth } from '/js/cookie.js';
+        checkAuth();
+    </script>
+</body>
+</html>

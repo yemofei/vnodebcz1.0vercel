@@ -1,0 +1,34 @@
+{
+    "data": {
+        "observerUniqueId": 2082858246,
+        "uniqueId": 1724772125,
+        "name": "Eignw",
+        "avatar": "https://vol-v6.bczcdn.com/ugc/1724772125/avatar/A2214FAABB7B3007232115400CE44AB9.jpg",
+        "bookName": "小学人教精通版六年级下",
+        "dakaDays": 652,
+        "todayStudyCount": 5,
+        "totalStudyCount": 3141,
+        "grade": "高一",
+        "ip": "天津",
+        "userTags": {
+            "1": "1",
+            "2": "16",
+            "3": "18",
+            "4": "20",
+            "5": "22"
+        },
+        "likedCount": 12112,
+        "todayLikedState": false,
+        "oneself": false,
+        "userPrivacy": {
+            "groupId": 5034683,
+            "showDeskmate": 1,
+            "showGroup": 1,
+            "showTeam": 0
+        },
+        "avatarFrame": null,
+        "todayStudyCheat": false
+    },
+    "message": "ok",
+    "code": 1
+}

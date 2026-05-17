@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - 百词斩用户信息查询</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>百词斩用户信息查询</h1>
+            <p>请输入密码登录</p>
+        </header>
+
+        <main>
+            <form id="login-form" class="login-form">
+                <div class="form-group">
+                    <label for="password">密码</label>
+                    <input type="password" id="password" name="password" placeholder="请输入密码" required>
+                </div>
+                <div id="error-msg" class="error-message" style="display:none"></div>
+                <button type="submit" class="btn-primary">登录</button>
+            </form>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 百词斩用户信息查询系统</p>
+        </footer>
+    </div>
+
+    <script type="module">
+        import { setCookie } from '/js/cookie.js';
+
+        document.getElementById('login-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ password })
+                });
+                const data = await response.json();
+
+                if (data.success) {
+                    setCookie('auth_token', data.token, 1);
+                    window.location.href = '/';
+                } else {
+                    const errorDiv = document.getElementById('error-msg');
+                    errorDiv.textContent = data.error || '密码错误，请重试';
+                    errorDiv.style.display = 'block';
+                }
+            } catch (err) {
+                const errorDiv = document.getElementById('error-msg');
+                errorDiv.textContent = '登录失败，请重试';
+                errorDiv.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
