@@ -1,7 +1,7 @@
 const axios = require('axios');
 const crypto = require('crypto');
 
-const token = "KPM5Jan7FZBUSsfOTJw%2BV5kn5VtnUVS6KF1dCcxgjrA%3D";
+const token = "GKCVoUKHrtmS8RQ0zB0IPyJ8iSUl4dfnDjSPTCRgQx4%3D";
 
 const HOME_PAGE_URL = "https://social.baicizhan.com/api/deskmate/home_page";
 const PERSONAL_INFOS_URL = "https://passport.baicizhan.com/api/unified_user_service/personal_infos";
